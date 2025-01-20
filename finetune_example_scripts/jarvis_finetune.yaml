@@ -1,0 +1,31 @@
+out_dir: 'finetune_example/finetuning/crystallm_v1_small'
+eval_interval: 100  # how often to evaluate against the validation set
+eval_iters_train: 80
+eval_iters_val: 80
+log_interval: 50  # how often to print to the console (1 = every iteration)
+init_from: 'resume' # for fine-tuning
+
+# logging
+always_save_checkpoint: True  # if set to False, will only save .ckpt if the model improves
+validate: True  # whether to validate with a validation set
+
+# data and batching
+dataset: 'finetune_example/finetuning/jarvis_train_val'
+batch_size: 8  # reduce if running out of memory
+gradient_accumulation_steps: 4  # batch_size * gradient_accumulation_steps = effective batch size
+
+# preserve the pre-trained model's parameters
+block_size: 1024
+n_layer: 8
+n_head: 8
+n_embd: 512
+dropout: 0.1
+
+# editable training parameters (these may need adjustment to specific dataset)
+learning_rate: 1e-4  # start from lower as the model is already pre-trained
+decay_lr: True
+max_iters: 101000  # number of iterations to train for (BASE MODEL IS AT 100K, so add how many more you want to finetune for)
+lr_decay_iters: 101000  # set to max_iters
+min_lr: 1e-5 # minimum learning rate (learning_rate/10 usually)
+warmup_iters: 100  # number of iterations to warm up for
+beta2: 0.99  # adam parameters
