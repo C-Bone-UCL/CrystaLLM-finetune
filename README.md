@@ -1,3 +1,25 @@
+A Finetuning guide to CrystaLLM: CrystaLLM-finetune
+==============
+
+## Introduction
+CrystaLLM-finetune is a repository based on CrystaLLM, for which the repository can be found 
+at [CrystaLLM](https://github.com/lantunes/CrystaLLM). The aim of this repo is to help researchers pick up pre-trained CrystaLLM models, finetune them using custom datasets, and then evaluate the finetuned model on its crystal structure generation capabilities. 
+
+On top of the regular repository, this one introduces a script to generate data from the  [JARVIS-DFT Dataset](https://www.nature.com/articles/s41524-020-00440-1) which is used as an example to finetune the model on new data. 
+
+We also introduce a custom evaluation script which preserves the original repository's logic, but allows the user to save valid generated structures to a specified folder, for further processing and use.
+
+Finally we give an example training configuration file that can be used to finetune the small pre-trained CrystaLLM model
+
+These can be found [here.](https://github.com/C-Bone-UCL/CrystaLLM-finetune/tree/main/finetune_example_scripts)
+
+## Following the tutorial
+To follow the tutorial on how to format your custom data, finetune a model, and evaluate its generation capabilities, follow the jupyter notebook [here.](https://github.com/C-Bone-UCL/CrystaLLM-finetune/blob/main/finetune-and-evaluate.ipynb)
+
+## Queries
+For any questions on how to use, contact cyprien.bone.24@ucl.ac.uk or raise a GitHub issue
+
+
 CrystaLLM
 ==============
 
